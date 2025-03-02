@@ -1,27 +1,38 @@
-body {
-    font-family: Arial, sans-serif;
+/* 1) Dark grey background for entire page */
+html, body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
+    background-color: #333; /* dark grey */
+    font-family: sans-serif;
+  }
+  
+  /* 2) Container fixed at 900px, centered */
+  .container {
+    width: 900px;
+    margin: 0 auto;       /* center horizontally */
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* white background for main content area */
+  }
+  
+  /* 3) Simple title styling */
+  h1 {
     text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-.gallery {
+    margin: 1rem 0;
+  }
+  
+  /* 4) Force exactly 4 columns in the grid, each 25% of .container */
+  .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 20px;
-}
-
-.gallery img {
-    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%; /* 4 columns, each 25% */
+    gap: 1rem; /* space between images */
+  }
+  
+  /* 5) Ensure images scale to fill their column */
+  .image-grid img {
+    width: 100%;    /* fill the 25% column */
     height: auto;
-    cursor: pointer;
-    border-radius: 8px;
-}
+    display: block; /* remove any inline spacing gaps */
+    object-fit: cover;
+  }
+  

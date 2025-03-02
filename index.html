@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Art Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Fixed 900px Layout with 4-Column Grid</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Your Art Portfolio</h1>
-    </header>
 
-    <section class="gallery">
-        <!-- Art pieces will be dynamically added here -->
-    </section>
+  <div class="container">
+    <h1>My Image Grid (4 in a Row, 25% Each)</h1>
+    <div class="image-grid" id="imageGrid"></div>
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+    // OPTIONAL: If you want to automatically load links from a local file:
+    fetch('links.txt')
+      .then(response => response.text())
+      .then(textData => {
+        const lines = textData.split('\n');
+        const imageGrid = document.getElementById('imageGrid');
+
+        lines.forEach(line => {
+          const trimmed = line.trim();
+          if (trimmed) {
+            const img = document.createElement('img');
+            img.src = trimmed;
+            imageGrid.appendChild(img);
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching links:', error));
+  </script>
+
 </body>
 </html>
