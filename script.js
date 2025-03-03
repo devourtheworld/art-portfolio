@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Set attributes
             linkElement.href = url;
             linkElement.className = 'gallery-item';
+            linkElement.target = "_blank";
             
             imgElement.src = url;
             imgElement.alt = `Image ${index + 1}`;
